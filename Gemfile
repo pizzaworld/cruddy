@@ -13,3 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 group :doc do
   gem 'sdoc', require: false
 end
+
+group :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+end
