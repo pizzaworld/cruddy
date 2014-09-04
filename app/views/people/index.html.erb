@@ -1,0 +1,10 @@
+<h1>People</h1>
+
+<ul>
+  <% @people.each do |person| %>
+    <li>
+      <span class="first"><%= person.first %></span>
+      <span class="last"><%= person.last %></span>
+    </li>
+  <% end %>
+</ul>
