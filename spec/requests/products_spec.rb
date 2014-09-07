@@ -25,4 +25,18 @@ describe 'Products' do
     end
   end
 
+  describe 'updating a product' do
+    let(:product) { Product.create name: 'Snake Slacks' }
+
+    it 'updates products from a form' do
+      visit "/products/#{product.id}/edit"
+      expect(page).to have_css 'h1', text: 'Edit Product'
+      fill_in 'Name', with: 'Viper Vest'
+      click_button 'Save'
+      expect(current_path).to eql '/products'
+      expect(page).not_to have_css '#products', text: 'Snake Slacks'
+      expect(page).to have_css '#products', text: 'Viper Vest'
+    end
+  end
+
 end

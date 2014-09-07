@@ -11,4 +11,14 @@ class ProductsController < ApplicationController
     Product.create name: params[:product][:name]
     redirect_to :products
   end
+
+  def edit
+    @product = Product.find params[:id]
+  end
+
+  def update
+    @product = Product.find params[:id]
+    @product.update name: params[:product][:name]
+    redirect_to :products
+  end
 end
