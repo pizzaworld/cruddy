@@ -1,6 +1,6 @@
 Cruddy::Application.routes.draw do
 
-  resources :horses, only: [:index, :new, :create]
+  resources :horses, only: [:index, :new, :create, :edit, :update]
   resources :people, only: [:index, :new, :create]
   resources :products, only: [:index, :new, :create, :edit, :update]
 

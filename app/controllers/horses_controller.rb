@@ -11,4 +11,14 @@ class HorsesController < ApplicationController
     Horse.create name: params[:horse][:name]
     redirect_to :horses
   end
+
+  def edit
+    @horse = Horse.find params[:id]
+  end
+
+  def update
+    @horse = Horse.find params[:id]
+    @horse.update name: params[:horse][:name]
+    redirect_to :horses
+  end
 end
