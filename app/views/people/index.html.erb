@@ -5,6 +5,7 @@
     <li>
       <span class="first"><%= person.first %></span>
       <span class="last"><%= person.last %></span>
+      <%= link_to "Delete", person, method: :delete %>
     </li>
   <% end %>
 </ul>

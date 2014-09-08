@@ -45,4 +45,17 @@ describe 'People' do
     end
   end
 
+  describe 'deleting a person' do
+    before do
+      Person.create first: 'Pug', last: 'Crusher'
+    end
+
+    it 'deletes a person from a link on the index page' do
+      visit "/people"
+      expect(page).to have_content 'Pug Crusher'
+      click_link 'Delete'
+      expect(current_path).to eql '/people'
+      expect(page).not_to have_content 'Pug Crusher'
+    end
+  end
 end

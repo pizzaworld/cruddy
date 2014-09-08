@@ -1,7 +1,7 @@
 Cruddy::Application.routes.draw do
 
   resources :horses, only: [:index, :new, :create, :edit, :update]
-  resources :people, only: [:index, :new, :create, :edit, :update]
+  resources :people, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :products, only: [:index, :new, :create, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.

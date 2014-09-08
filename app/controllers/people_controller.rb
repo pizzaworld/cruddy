@@ -23,4 +23,11 @@ class PeopleController < ApplicationController
     @person.update last: params[:person][:last]
     redirect_to :people
   end
+
+  def destroy
+    @person = Person.find params[:id]
+    @person.destroy
+    redirect_to :people
+  end
+
 end
