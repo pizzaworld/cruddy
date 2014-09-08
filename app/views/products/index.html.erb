@@ -5,11 +5,13 @@
     <tr>
       <th>Name</th>
     </tr>
+      <th></th>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= link_to "Delete", product, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

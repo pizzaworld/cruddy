@@ -21,4 +21,11 @@ class ProductsController < ApplicationController
     @product.update name: params[:product][:name]
     redirect_to :products
   end
+
+  def destroy
+    @product = Product.find params[:id]
+    @product.destroy
+    redirect_to :products
+  end
+
 end

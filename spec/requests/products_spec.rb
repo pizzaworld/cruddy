@@ -39,4 +39,17 @@ describe 'Products' do
     end
   end
 
+  describe 'deleting a product' do
+    before do
+      Product.create name: 'Dog Beer'
+    end
+
+  it 'deletes a product from a link on the index page' do
+    visit "/products"
+    expect(page).to have_content 'Dog Beer'
+    click_link 'Delete'
+    expect(current_path).to eql '/products'
+    expect(page).not_to have_content 'Dog Beer'
+  end
+ end
 end
