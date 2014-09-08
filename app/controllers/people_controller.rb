@@ -13,4 +13,14 @@ class PeopleController < ApplicationController
     redirect_to :people
   end
 
+  def edit
+    @person = Person.find params[:id]
+  end
+
+  def update
+    @person = Person.find params[:id]
+    @person.update first: params[:person][:first]
+    @person.update last: params[:person][:last]
+    redirect_to :people
+  end
 end
