@@ -39,4 +39,18 @@ describe 'Horses' do
       expect(page).to have_css '.name', text: 'Pigpen'
     end
   end
+
+  describe 'deleting a horse' do
+    before do
+      Horse.create name: 'Porky'
+  end
+
+  it 'deletes a horse from a link on the index page' do
+      visit "/horses"
+      expect(page).to have_content 'Porky'
+      click_link 'Delete'
+      expect(current_path).to eql '/horses'
+      expect(page).not_to have_content 'Porky'
+  end
+ end
 end

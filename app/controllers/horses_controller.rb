@@ -21,4 +21,10 @@ class HorsesController < ApplicationController
     @horse.update name: params[:horse][:name]
     redirect_to :horses
   end
+
+  def destroy
+    @horse = Horse.find params[:id]
+    @horse.destroy
+    redirect_to :horses
+  end
 end
