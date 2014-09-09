@@ -27,4 +27,8 @@ class HorsesController < ApplicationController
     @horse.destroy
     redirect_to :horses
   end
+
+  def show
+    @horse = Horse.find params[:id]
+  end
 end

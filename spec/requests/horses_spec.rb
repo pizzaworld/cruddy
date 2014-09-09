@@ -53,4 +53,13 @@ describe 'Horses' do
       expect(page).not_to have_content 'Porky'
   end
  end
+
+  describe 'showing a horse' do
+    let(:horse) { Horse.create name: 'Cosimo de Medici' }
+
+    it 'shows a horse' do
+      visit "/horses/#{horse.id}"
+      expect(page).to have_css 'h1', text: 'Cosimo de Medici'
+  end
+ end
 end
