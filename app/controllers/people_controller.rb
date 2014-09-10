@@ -30,4 +30,7 @@ class PeopleController < ApplicationController
     redirect_to :people
   end
 
+  def show
+    @person = Person.find params[:id]
+  end
 end

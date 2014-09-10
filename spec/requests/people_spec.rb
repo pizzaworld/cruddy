@@ -58,4 +58,13 @@ describe 'People' do
       expect(page).not_to have_content 'Pug Crusher'
     end
   end
+
+  describe 'showing a person' do
+    let(:person) { Person.create first: 'Nikola', last: 'Tesla' }
+
+    it 'shows a person' do
+      visit "/people/#{person.id}"
+      expect(page).to have_css 'h1', text: 'Nikola Tesla'
+  end
+ end
 end
