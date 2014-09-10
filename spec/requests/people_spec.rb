@@ -67,4 +67,13 @@ describe 'People' do
       expect(page).to have_css 'h1', text: 'Nikola Tesla'
   end
  end
+
+  describe 'showing a product' do
+    let(:product) { Product.create name: 'Horse Hat' }
+
+    it 'shows a product' do
+      visit "/products/#{product.id}"
+      expect(page).to have_css 'h1', text: 'Horse Hat'
+    end
+  end
 end
