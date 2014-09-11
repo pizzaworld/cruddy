@@ -16,7 +16,8 @@ describe 'Products' do
 
   describe 'creating a new product' do
     it 'creates a new product from a form' do
-      visit '/products/new'
+      visit '/products'
+      click_link 'Add Product'
       expect(page).to have_css 'h1', text: 'New Product'
       fill_in 'Name', with: 'Dog Trousers'
       click_button 'Save'

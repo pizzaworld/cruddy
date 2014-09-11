@@ -17,7 +17,8 @@ describe 'People' do
 
   describe 'Creating a new person' do
     it 'creates people from a form' do
-      visit '/people/new'
+      visit '/people'
+      click_link 'Add Person'
       expect(page).to have_css 'h1', text: 'New Person'
       fill_in 'First', with: 'Paul'
       fill_in 'Last', with: 'Revere'
@@ -25,7 +26,6 @@ describe 'People' do
       expect(current_path). to eql '/people'
       expect(page). to have_css '.first', text: 'Paul'
       expect(page). to have_css '.last', text: 'Revere'
-
     end
   end
 

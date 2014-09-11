@@ -16,7 +16,8 @@ describe 'Horses' do
 
   describe 'creating a new horse' do
     it 'creates horses from a form' do
-      visit '/horses/new'
+      visit '/horses'
+      click_link 'Add Horse'
       expect(page).to have_css 'h1', text: 'New Horse'
       fill_in 'Name', with: 'Peanut'
       click_button 'Save'
