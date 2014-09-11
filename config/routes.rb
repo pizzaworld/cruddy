@@ -1,5 +1,7 @@
 Cruddy::Application.routes.draw do
 
+  root 'welcome#index'
+
   resources :horses, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :people, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :products, only: [:index, :new, :create, :edit, :update, :destroy, :show]
