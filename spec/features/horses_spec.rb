@@ -56,10 +56,13 @@ describe 'Horses' do
  end
 
   describe 'showing a horse' do
-    let(:horse) { Horse.create name: 'Cosimo de Medici' }
+    before do
+      Horse.create name: 'Cosimo de Medici'
+    end
 
     it 'shows a horse' do
-      visit "/horses/#{horse.id}"
+      visit "/horses"
+      click_link 'Cosimo de Medici'
       expect(page).to have_css 'h1', text: 'Cosimo de Medici'
   end
  end

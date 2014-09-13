@@ -45,12 +45,22 @@ describe 'Products' do
       Product.create name: 'Dog Beer'
     end
 
-  it 'deletes a product from a link on the index page' do
-    visit "/products"
-    expect(page).to have_content 'Dog Beer'
-    click_link 'Delete'
-    expect(current_path).to eql '/products'
-    expect(page).not_to have_content 'Dog Beer'
+    it 'deletes a product from a link on the index page' do
+      visit "/products"
+      expect(page).to have_content 'Dog Beer'
+      click_link 'Delete'
+      expect(current_path).to eql '/products'
+      expect(page).not_to have_content 'Dog Beer'
+    end
   end
- end
+
+  describe 'showing a product' do
+    before { Product.create name: 'Horse Hat' }
+
+    it 'shows a product' do
+      visit "/products"
+      click_link 'Horse Hat'
+      expect(page).to have_css 'h1', text: 'Horse Hat'
+    end
+  end
 end

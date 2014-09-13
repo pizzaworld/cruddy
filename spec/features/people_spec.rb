@@ -60,20 +60,13 @@ describe 'People' do
   end
 
   describe 'showing a person' do
-    let(:person) { Person.create first: 'Nikola', last: 'Tesla' }
+    before { Person.create first: 'Nikola', last: 'Tesla' }
 
     it 'shows a person' do
-      visit "/people/#{person.id}"
+      visit "/people"
+      click_link 'Show'
       expect(page).to have_css 'h1', text: 'Nikola Tesla'
-  end
- end
-
-  describe 'showing a product' do
-    let(:product) { Product.create name: 'Horse Hat' }
-
-    it 'shows a product' do
-      visit "/products/#{product.id}"
-      expect(page).to have_css 'h1', text: 'Horse Hat'
     end
   end
+
 end
