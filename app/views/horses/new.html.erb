@@ -1,7 +1,3 @@
 <h1> New Horse</h1>
 
-<%= form_for @horse do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Save' %>
-<% end %>
+<%= render 'form' %>
