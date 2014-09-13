@@ -6,6 +6,7 @@
   <% @horses.each do |horse| %>
     <li>
       <span class="name"><%= link_to horse.name, horse  %></span>
+      <%= link_to "Edit", [:edit, horse] %>
       <%= link_to "Delete", horse, method: :delete %>
     </li>
   <% end %>

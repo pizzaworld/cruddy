@@ -30,10 +30,11 @@ describe 'People' do
   end
 
   describe 'updating a person' do
-    let(:person) { Person.create first: 'Art', last: 'Pymp' }
+    before { Person.create first: 'Art', last: 'Pymp' }
 
     it 'updates people from a form' do
-      visit "/people/#{person.id}/edit"
+      visit "/people"
+      click_link 'Edit'
       expect(page).to have_css 'h1', text: 'Edit Person'
       fill_in 'First', with: 'Joey'
       fill_in 'Last', with: 'Hotdogz'

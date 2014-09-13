@@ -8,6 +8,7 @@
       <span class="first"><%= person.first %></span>
       <span class="last"><%= person.last %></span>
       <%= link_to "Show", person %>
+      <%= link_to "Edit", [:edit, person] %>
       <%= link_to "Delete", person, method: :delete %>
     </li>
   <% end %>

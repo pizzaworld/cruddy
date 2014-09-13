@@ -28,10 +28,11 @@ describe 'Horses' do
   end
 
   describe 'updating a horse' do
-    let(:horse) { Horse.create name: 'Marcus Aurelius' }
+    before { Horse.create name: 'Marcus Aurelius' }
 
     it 'updates horses from a form' do
-      visit "/horses/#{horse.id}/edit"
+      visit "/horses"
+      click_link 'Edit'
       expect(page).to have_css 'h1', text: 'Edit Horse'
       fill_in 'Name', with: 'Pigpen'
       click_button 'Save'

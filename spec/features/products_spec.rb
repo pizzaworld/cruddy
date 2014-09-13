@@ -27,10 +27,11 @@ describe 'Products' do
   end
 
   describe 'updating a product' do
-    let(:product) { Product.create name: 'Snake Slacks' }
+    before { Product.create name: 'Snake Slacks' }
 
     it 'updates products from a form' do
-      visit "/products/#{product.id}/edit"
+      visit "/products"
+      click_link 'Edit'
       expect(page).to have_css 'h1', text: 'Edit Product'
       fill_in 'Name', with: 'Viper Vest'
       click_button 'Save'
