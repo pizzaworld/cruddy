@@ -8,8 +8,13 @@ class HorsesController < ApplicationController
   end
 
   def create
-    Horse.create name: params[:horse][:name]
-    redirect_to :horses
+    @horse = Horse.new name: params[:horse][:name]
+    if @horse.valid?
+      @horse.save
+      redirect_to :horses
+    else
+      render :new
+    end
   end
 
   def edit
@@ -18,8 +23,11 @@ class HorsesController < ApplicationController
 
   def update
     @horse = Horse.find params[:id]
-    @horse.update name: params[:horse][:name]
-    redirect_to :horses
+    if @horse.update name: params[:horse][:name]
+      redirect_to :horses
+    else
+      render :edit
+    end
   end
 
   def destroy
