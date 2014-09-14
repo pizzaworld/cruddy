@@ -2,9 +2,9 @@ Cruddy::Application.routes.draw do
 
   root 'welcome#index'
 
-  resources :horses, only: [:index, :new, :create, :edit, :update, :destroy, :show]
-  resources :people, only: [:index, :new, :create, :edit, :update, :destroy, :show]
-  resources :products, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  resources :horses
+  resources :people
+  resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
